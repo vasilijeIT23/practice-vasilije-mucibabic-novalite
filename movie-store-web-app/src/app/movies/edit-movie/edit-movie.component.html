@@ -1,0 +1,17 @@
+<form [formGroup]="formGroup">
+  <mat-form-field>
+    <mat-label for="title">Title: </mat-label>
+    <input matInput id="title" type="text" formControlName="title">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Licencing Type:</mat-label>
+    <mat-select formControlName="licencingType">
+      <mat-option *ngFor="let type of myMap | keyvalue" [value]="type.key">
+        {{type.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-button type="submit" [disabled]="formGroup.invalid" (click)="onSubmit()">Submit</button>
+
+</form>

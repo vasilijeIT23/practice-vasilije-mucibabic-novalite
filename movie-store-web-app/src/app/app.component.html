@@ -1,0 +1,22 @@
+<h1>Movie Store</h1>
+<nav *ngIf="loginDisplay">
+    <button mat-flat-button class="customer-button"><a routerLink="/customers" routerLinkActive="active"
+        ariaCurrentWhenActive="page">Customers</a></button>
+
+    <button mat-flat-button class="customer-button"><a routerLink="/movies" routerLinkActive="active"
+        ariaCurrentWhenActive="page">Movies</a></button>
+    <button class = "create-movie" mat-raised-button (click)="createMovie()">Create movie</button>
+</nav>
+
+<mat-card *ngIf="!loginDisplay">
+  <button mat-raised-button (click)="login()">Login</button>
+</mat-card>
+
+<mat-card *ngIf="loginDisplay">
+  <p>Welcome {{customerEmail}}</p>
+  <button mat-raised-button (click)="logout()">Logout</button>
+</mat-card>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

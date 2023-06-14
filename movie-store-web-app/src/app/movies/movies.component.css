@@ -1,0 +1,8 @@
+.example-card {
+    max-width: 400px;
+    margin: 15px;
+  }
+.actions-button{
+  position: absolute;
+  margin-left: 300px;
+}

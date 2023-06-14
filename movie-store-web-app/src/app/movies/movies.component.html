@@ -1,0 +1,21 @@
+<h2>Movies</h2>
+  <mat-card class="example-card"  *ngFor="let movie of movies">
+    <mat-card-header>
+      <button class="actions-button" mat-icon-button aria-label="Example icon button with a vertical three dot icon" [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="onUpdate(movie)">Update</button>
+          <button mat-menu-item (click)="onDelete(movie)">Delete</button>
+        </mat-menu>
+      </button>
+      <mat-card-title>Title: {{movie.title}}</mat-card-title>
+      <mat-card-subtitle *ngIf="movie.licencingType == 1">Two day</mat-card-subtitle>
+      <mat-card-subtitle *ngIf="movie.licencingType == 2">Lifelong</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions *ngIf="movie.licencingType===1">
+      <button mat-button  (click)="onPurchase(movie.id!)" >Rent</button>
+    </mat-card-actions>
+    <mat-card-actions *ngIf="movie.licencingType===2">
+      <button mat-button  (click)="onPurchase(movie.id!)" >Buy</button>
+    </mat-card-actions>
+  </mat-card>
